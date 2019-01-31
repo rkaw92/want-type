@@ -1,0 +1,30 @@
+{
+  "name": "want-type",
+  "version": "1.0.0",
+  "description": "a library for hassle-free type checking in Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkaw92/want-type.git"
+  },
+  "keywords": [
+    "validation",
+    "type",
+    "checking",
+    "types",
+    "input",
+    "schema"
+  ],
+  "author": "Robert Kawecki <robert+npm@rkaw.pl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rkaw92/want-type/issues"
+  },
+  "homepage": "https://github.com/rkaw92/want-type#readme",
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
+}
