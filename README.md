@@ -88,6 +88,10 @@ Generates a test function that returns true iff the input is a string of the giv
 #### `want.Number(min = 0, max = Infinity)`
 Generates a test function for checking if the input is a valid number (not NaN), and is within range (inclusive).
 
+#### `want.Date(min = 0, max = Infinity)`
+Generates a function that checks whether the input is a date between the given timestamps,
+as represented by milliseconds since the Unix epoch (`1970-01-01T00:00:00Z`). Also supports
+passing `Date` objects, but not date strings, as `min` and `max`.
 
 #### `want.Boolean()`
 Generates a function that checks if the input is a boolean. Numbers like 0 and 1 fail the test, too (`typeof` needs to be `boolean`).

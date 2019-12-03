@@ -31,6 +31,13 @@ describe('want', function() {
     assert.throws(function() { want('temperature', 'not a number', want.Number()); }, E);
     assert.throws(function() { want('temperature', NaN, want.Number()); }, E);
   });
+  it('should validate dates', function() {
+    assert.doesNotThrow(function() { want('expires', new Date(), want.Date()); });
+    assert.doesNotThrow(function() { want('past', new Date(Date.now() - 1000000), want.Date(0, new Date())); });
+    assert.doesNotThrow(function() { want('future', new Date(Date.now() + 1000000), want.Date(Date.now() + 1)); });
+    assert.throws(function() { want('future', new Date(Date.now() - 1000000), want.Date(Date.now() + 1)); }, E);
+    assert.throws(function() { want('date', new Date('1999-01-01T00:00:00Z'), want.Date(new Date('1998-01-01T00:00:00Z'), new Date('1998-12-31T23:59:59.999Z'))); }, E);
+  });
   it('should validate boolean', function() {
     assert.doesNotThrow(function() { want('flag', true, want.Boolean()); });
     assert.doesNotThrow(function() { want('flag', false, want.Boolean()); });

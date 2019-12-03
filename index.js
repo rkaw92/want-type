@@ -42,6 +42,11 @@ want.String = function(minLength = 0, maxLength = Infinity) {
 want.Number = function(min = 0, max = Infinity) {
   return name('Number', (input) => (typeof input === 'number' && !isNaN(input) && input >= min && input <= max));
 };
+want.Date = function(min = 0, max = Infinity) {
+  min = Number(min);
+  max = Number(max);
+  return name('Date', (input) => (typeof input === 'object' && input.getTime && !isNaN(input.getTime()) && input.getTime() >= min && input.getTime() <= max));
+};
 want.Boolean = function() {
   return name('Boolean', (input) => (typeof input === 'boolean'));
 };
